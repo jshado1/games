@@ -1,0 +1,23 @@
+{
+  "name": "ship-sink",
+  "version": "1.0.0",
+  "description": "Sink the ships before you run out of shots.",
+  "main": "./game/index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jshado1/games.git"
+  },
+  "keywords": [
+    "games",
+    "js",
+    "modules",
+    "css",
+    "variables"
+  ],
+  "author": "Jacob Smith",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jshado1/games/issues"
+  },
+  "homepage": "https://github.com/jshado1/games#readme"
+}

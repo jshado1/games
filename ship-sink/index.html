@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ship Sink</title>
+  <link
+      href="./favicon.svg"
+      rel="icon"
+      type="image/svg+xml"
+  />
+  <link
+      href="./main.css"
+      rel="stylesheet"
+      type="text/css"
+  />
+</head>
+
+<body>
+  <header>
+    <aside
+      id="controls"
+    >
+      <input
+        aria-label="toggle sound"
+        class="icon toggleSound"
+        checked
+        id="muteControl"
+        name="toggle sound"
+        type="checkbox"
+      />
+      <button
+        aria-label="new game"
+        class="icon reset"
+        id="newGame"
+        type="reset"
+      />
+    </aside>
+    <h1
+      id="title"
+      class="no-margin"
+    >Sink the ships!</h1>
+  </header>
+
+  <main id="playArea">
+    <aside id="scoreboard">
+      <p class="no-margin">Tries left: <span id="tries"></span></p>
+      <p id="message"></p>
+      <div id="ships"></div>
+    </aside>
+    <div id="board" class="circles"></div>
+  </main>
+
+  <script>
+    if (window.location.protocol === 'file:') {
+        alert('Game cannot be run from file (it must be hosted)');
+    }
+  </script>
+  <script type="module">
+    import init from './game/index.mjs';
+
+    const queryParams = new URLSearchParams(location.search);
+
+    init(
+        {
+            boardId: 'board',
+            messageId: 'message',
+            newGameId: 'newGame',
+            sidebarShipsId: 'ships',
+            soundToggleId: 'muteControl',
+            triesId: 'tries',
+        },
+        {
+            debug: (queryParams.get('debug') !== null),
+            difficulty: queryParams.get('difficulty') || '',
+        },
+    );
+  </script>
+</body>
+
+</html>
