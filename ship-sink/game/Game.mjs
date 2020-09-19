@@ -31,7 +31,8 @@ class Game {
 
         switch (this._tries) {
             case 0:
-                return this.end(false);
+                this.end(false);
+                break;
             case 10:
                 message = Sidebar.MESSAGES.low;
                 style = Sidebar.MESSAGE_STYLES.warning;
